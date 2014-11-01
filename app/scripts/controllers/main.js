@@ -1,19 +1,17 @@
 (function() {
   'use strict';
   angular.module('reposApp').controller('MainCtrl', function($scope) {
-    return $scope.tasks = [
+    $scope.myStatus = {
+      "name": "ham",
+      "status": 0
+    };
+    return $scope.memberStatus = [
       {
-        "body": "do this one",
-        "done": false
+        "name": "endoo",
+        "status": 0
       }, {
-        "body": "do this two",
-        "done": false
-      }, {
-        "body": "do this three",
-        "done": false
-      }, {
-        "body": "do this four",
-        "done": false
+        "name": "kosk",
+        "status": 1
       }
     ];
   });

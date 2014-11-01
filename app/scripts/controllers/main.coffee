@@ -2,9 +2,11 @@
 
 angular.module('reposApp')
   .controller 'MainCtrl', ($scope) ->
-    $scope.tasks = [
-      {"body": "do this one", "done": false},
-      {"body": "do this two", "done": false},
-      {"body": "do this three", "done": false},
-      {"body": "do this four", "done": false}
+    $scope.myStatus = {
+      "name": "ham",
+      "status": 0
+    }
+    $scope.memberStatus = [
+      {"name": "endoo", "status": 0},
+      {"name": "kosk", "status": 1}
     ]
