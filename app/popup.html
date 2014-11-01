@@ -19,9 +19,11 @@
 <!-- endbower -->
 <!-- endbuild -->
 <div ng-controller="MainCtrl">
+<button ng-click="toggleStatus()">toggle</button>
 {{myStatus.name}} {{myStatus.status}}
 {{memberStatus[0].name}}
 </div>
+
 <!-- build:js scripts/popup.js -->
 <script src="scripts/popup.js"></script>
 <!-- endbuild -->
