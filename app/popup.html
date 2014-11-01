@@ -19,15 +19,18 @@
 <!-- endbower -->
 <!-- endbuild -->
 <div ng-controller="MainCtrl">
+<button ng-click="toggleStatus()">toggle</button>
+{{myStatus.name}} {{myStatus.status}}
+{{memberStatus[0].name}}
 <ul style="list-style:none">
 	<li ng-repeat="memberStatus in memberStatus">
 	<p>画像予定</p>
 	{{memberStatus.name}}
 	status:{{memberStatus.status}}
-
 	</li>
 </ul>
 </div>
+
 <!-- build:js scripts/popup.js -->
 <script src="scripts/popup.js"></script>
 <!-- endbjuild -->
