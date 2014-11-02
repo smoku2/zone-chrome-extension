@@ -19,18 +19,16 @@
 <!-- endbower -->
 <!-- endbuild -->
 <div ng-controller="MainCtrl">
-<button ng-click="toggleStatus()">toggle</button>
-{{myStatus.name}} {{myStatus.status}}
-{{memberStatus[0].name}}
+<button ng-click="updateStatus()">toggle</button>
+<h2>MyStatus</h2>
+{{myStatus.username}} / {{userStatus[myStatus.status]}}
 <ul style="list-style:none">
 	<li ng-repeat="memberStatus in memberStatus">
-	<p>画像予定</p>
-	{{memberStatus.name}}
-	status:{{memberStatus.status}}
+  {{memberStatus.username}} / {{userStatus[memberStatus.status]}}
 	</li>
 </ul>
+<button ng-click="getStatus()">get status</button>
 </div>
-
 <!-- build:js scripts/popup.js -->
 <script src="scripts/popup.js"></script>
 <!-- endbjuild -->
@@ -40,5 +38,6 @@
 <!-- build:js scripts/controllers/main.js -->
 <script src="scripts/controllers/main.js"></script>
 <!-- endbuild -->
+<pre>{{memberStatus|json}}</pre>
 </body>
 </html>
