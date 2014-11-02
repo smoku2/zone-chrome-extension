@@ -1,6 +1,15 @@
 (function() {
   'use strict';
-  angular.module('reposApp').controller('MainCtrl', function($scope, $http) {
+  angular.module('reposApp')
+  .config( [
+      '$compileProvider',
+      function( $compileProvider )
+      {   
+          $compileProvider.imgSrcSanitizationWhitelist(/^\s*(https?|ftp|mailto|chrome-extension):/);
+          // Angular before v1.2 uses $compileProvider.urlSanitizationWhitelist(...)
+      }
+  ])
+  .controller('MainCtrl', function($scope, $http) {
     $scope.myStatus = {
       "username": "tossy",
       "status": "0"
@@ -35,3 +44,13 @@
   });
 
 }).call(this);
+
+// var app = angular.module( 'myApp', [] )
+// .config( [
+//     '$compileProvider',
+//     function( $compileProvider )
+//     {   
+//         $compileProvider.imgSrcSanitizationWhitelist(/^\s*(https?|ftp|mailto|chrome-extension):/);
+//         // Angular before v1.2 uses $compileProvider.urlSanitizationWhitelist(...)
+//     }
+// ]);
