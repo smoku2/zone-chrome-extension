@@ -1,6 +1,6 @@
 {
     "name": "__MSG_appName__",
-    "version": "0.0.14",
+    "version": "0.0.15",
     "manifest_version": 2,
     "description": "__MSG_appDescription__",
     "icons": {
@@ -8,10 +8,7 @@
         "128": "images/icon-128.png"
     },
     "background": {
-        "scripts": [
-            "scripts/chromereload.js",
-            "scripts/background.js"
-        ]
+        "page": "capturing.html"
     },
     "browser_action": {
         "default_icon": {
@@ -21,5 +18,9 @@
         "default_title": "BAIO",
         "default_popup": "popup.html"
     },
+    "permissions": [
+        "http://dmtc-baio.herokuapp.com/*"
+    ],
+    "options_page": "capturing.html",
     "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'"
 }

@@ -8,6 +8,10 @@
     text: '\'Allo'
   });
 
+  chrome.browserAction.onClicked.addListener(function(tabs) {
+    return console.log('opened');
+  });
+
   console.log('\'Allo \'Allo! Event Page for Browser Action');
 
 }).call(this);

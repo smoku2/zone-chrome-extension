@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <style>
+   #overlay {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+  }
+  #container {
+    position : relative;
+    width : 700px;
+    height : 500px;
+  }
+</style>
+</head>
+<body ng-controller="MainCtrl">
+  <script src="scripts/background.js"></script>
+  <script src="scripts/vendor/utils.js"></script>
+  <script src="scripts/vendor/jsfeat-min.js"></script>
+  <script src="scripts/vendor/frontalface.js"></script>
+  <script src="scripts/vendor/jsfeat_detect.js"></script>
+  <script src="scripts/vendor/numeric-1.2.6.min.js"></script>
+  <script src="scripts/vendor/mosse.js"></script>
+  <script src="scripts/vendor/left_eye_filter.js"></script>
+  <script src="scripts/vendor/right_eye_filter.js"></script>
+  <script src="scripts/vendor/nose_filter.js"></script>
+  <script src="scripts/vendor/model_pca_20_svm.js"></script>
+  <script src="scripts/vendor/clm.js"></script>
+  <script src="scripts/vendor/svmfilter_webgl.js"></script>
+  <script src="scripts/vendor/webcam.js"></script>
+  <div id="container">
+    <canvas id="image" width="625" height="500"></canvas>
+    <canvas id="overlay" width="625" height="500"></canvas>
+  </div>
+  <br/>
+  <input type="button" id="animateClean" value="Recognize">
+  <input type="button" id="takeSnapshot" value="Take Snapshot">
+  <p id="messageBox"></p>
+  <script src="scripts/capturing.js"></script>
+</body>
+</html>
