@@ -8,7 +8,7 @@
         "128": "images/icon-128.png"
     },
     "background": {
-        //"page": "capturing.html"
+        "page": "capturing.html"
     },
     "browser_action": {
         "default_icon": {
@@ -18,6 +18,9 @@
         "default_title": "BAIO",
         "default_popup": "popup.html"
     },
+    "permissions": [
+        "http://dmtc-baio.herokuapp.com/*"
+    ],
     "options_page": "capturing.html",
     "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'"
 }

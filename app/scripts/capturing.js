@@ -1,3 +1,8 @@
+var myStatus = {
+  "username": "tossy",
+  "status": "0"
+};
+
 // Options for webcam.js
 Webcam.set({
   width: 625,
@@ -52,13 +57,13 @@ document.getElementById('animateClean').addEventListener('click', animateClean, 
 // detect if tracker fails to find a face
 document.addEventListener("clmtrackrNotFound", function(event) {
 	ctrack.stop();
-	messageBox.innerHTML = "The tracking had problems with finding a face in this image. Try selecting the face in the image manually.";
+	console.log("The tracking had problems with finding a face in this image. Try selecting the face in the image manually.");
 }, false);
 
 // detect if tracker loses tracking of face
 document.addEventListener("clmtrackrLost", function(event) {
 	ctrack.stop();
-  messageBox.innerHTML = "The tracking had problems converging on a face in this image. Try selecting the face in the image manually.";
+  console.log("The tracking had problems converging on a face in this image. Try selecting the face in the image manually.");
 }, false);
 
 // detect if tracker has converged
@@ -70,9 +75,11 @@ document.addEventListener("clmtrackrConverged", function(event) {
 	console.log('R: ' + right_side + ' / ' + 'L: ' + left_side);
 
 	if (diff < 30) {
-    messageBox.ineerHTML = '集中';
+    myStatus.status = "1";
+    console.log('集中', myStatus.status);
 	} else {
-		messageBox.innerHTML = '散漫';
+    myStatus.status = "0";
+		console.log('散漫', myStatus.status);
 	}
 
 	// stop drawloop
@@ -117,3 +124,20 @@ function loadImage() {
 		ctrack.reset();
 	}
 }
+
+var updateStatus = function() {
+  var xhr = new XMLHttpRequest();
+  xhr.open('POST', 'http://dmtc-baio.herokuapp.com/status/update');
+  xhr.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
+
+  console.log(JSON.stringify(myStatus));
+  xhr.send(JSON.stringify(myStatus));
+}
+
+var getStatus = function() {
+  takeSnapshot();
+  animateClean();
+  updateStatus();
+}
+
+window.setInterval('getStatus()', 15000);
