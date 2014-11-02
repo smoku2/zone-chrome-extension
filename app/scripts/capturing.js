@@ -1,66 +1,64 @@
+// Options for webcam.js
 Webcam.set({
-width: 625,
-height: 500,
-image_format: 'jpg',
-jpeg_quality: 90
+  width: 625,
+  height: 500,
+  image_format: 'jpg',
+  jpeg_quality: 90
 });
 Webcam.attach('image');
 
 var cc = document.getElementById('image').getContext('2d');
 var overlay = document.getElementById('overlay');
 var overlayCC = overlay.getContext('2d');
-
 var img = new Image();
 img.onload = function() {
-cc.drawImage(img, 0, 0, 625, 500);
+  cc.drawImage(img, 0, 0, 625, 500);
 };
+var messageBox = document.getElementById('messageBox');
 
+// Take snapshot and assign URI to image source
 function takeSnapshot() {
-// take snapshot and get image data
-Webcam.snap(function(data_uri) {
-// insert image uri to source
-img.src = data_uri;
-});
+  Webcam.snap(function(data_uri) {
+    img.src = data_uri;
+  });
 }
 
 var ctrack = new clm.tracker({stopOnConvergence : true});
 ctrack.init(pModel);
 var drawRequest;
 
+// Animate outline of face
 function animateClean() {
-ctrack.start(document.getElementById('image'));
-drawLoop();
+  ctrack.start(document.getElementById('image'));
+  drawLoop();
 }
 
-function animate(box) {
-ctrack.start(document.getElementById('image'), box);
-drawLoop();
-}
-
+// Find coordinates
 var position;
 function drawLoop() {
-drawRequest = requestAnimFrame(drawLoop);
-overlayCC.clearRect(0, 0, 720, 576);
-position = ctrack.getCurrentPosition();
+  drawRequest = requestAnimFrame(drawLoop);
+  overlayCC.clearRect(0, 0, 720, 576);
+  position = ctrack.getCurrentPosition();
 
-if (position) {
-ctrack.draw(overlay);
-}
+  if (position) {
+    ctrack.draw(overlay);
+  }
 }
 
+// Event listener for buttons
 document.getElementById('takeSnapshot').addEventListener('click', takeSnapshot, false);
 document.getElementById('animateClean').addEventListener('click', animateClean, false);
 
 // detect if tracker fails to find a face
 document.addEventListener("clmtrackrNotFound", function(event) {
 	ctrack.stop();
-	alert("The tracking had problems with finding a face in this image. Try selecting the face in the image manually.")
+	messageBox.innerHTML = "The tracking had problems with finding a face in this image. Try selecting the face in the image manually.";
 }, false);
 
 // detect if tracker loses tracking of face
 document.addEventListener("clmtrackrLost", function(event) {
 	ctrack.stop();
-	alert("The tracking had problems converging on a face in this image. Try selecting the face in the image manually.")
+  messageBox.innerHTML = "The tracking had problems converging on a face in this image. Try selecting the face in the image manually.";
 }, false);
 
 // detect if tracker has converged
@@ -72,9 +70,9 @@ document.addEventListener("clmtrackrConverged", function(event) {
 	console.log('R: ' + right_side + ' / ' + 'L: ' + left_side);
 
 	if (diff < 30) {
-		document.getElementById('result').innerHTML = '集中';
+    messageBox.ineerHTML = '集中';
 	} else {
-		document.getElementById('result').innerHTML = '散漫';
+		messageBox.innerHTML = '散漫';
 	}
 
 	// stop drawloop
