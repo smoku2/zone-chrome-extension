@@ -1,6 +1,7 @@
 body {
   width: 300px;
   padding-top: 20px;
+  background: #fafafa;
 }
 
 input {
@@ -14,4 +15,13 @@ input {
 img {
   width: 70px;
   height: 70px;
+  border-radius: 50%;
+}
+
+.status0 {
+
+}
+
+.status1 {
+
 }

@@ -27,7 +27,7 @@
     </div>
 		<div class="row">
 				<div class="col-xs-6 text-center user" ng-repeat="member in memberStatus|filter:query">
-					<img ng-src="images/{{member.id}}.jpg">
+					<img ng-class="status{{member.status}}" ng-src="images/{{member.id}}.jpg">
 					<h4>{{member.username}}</h4>
 				</div><!-- /.col-lg-4 -->
 		</div><!-- row -->
