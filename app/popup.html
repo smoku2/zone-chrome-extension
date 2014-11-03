@@ -8,7 +8,7 @@
 	<!-- endbower -->
 	<!-- endbuild -->
 	<!-- build:css styles/main.css -->
-	<link href="./bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">	
+	<link href="./bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="styles/main.css">
 	<!-- endbuild -->
 	<script src="bower_components/angular/angular.js"></script>
@@ -19,7 +19,7 @@
 	<!-- bower:js -->
 	<!-- endbower -->
 	<!-- endbuild -->
-	<div ng-controller="MainCtrl">
+	<div ng-controller="MainCtrl" data-ng-init="getStatus()">
 		<div class="row">
 				<div class="col-xs-6" ng-repeat="member in memberStatus">
 					<img ng-src="./images/{{$index+1}}.jpg" width="70px" height="70px" align="middle">
