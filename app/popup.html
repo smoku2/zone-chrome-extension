@@ -2,32 +2,30 @@
 <html lang="ja" ng-app="reposApp">
 <head>
 	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 	<!-- build:css styles/vendor.css -->
 	<!-- bower:css -->
 	<!-- endbower -->
 	<!-- endbuild -->
 	<!-- build:css styles/main.css -->
-	<link href="./bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+	<link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="styles/main.css">
 	<!-- endbuild -->
 	<script src="bower_components/angular/angular.js"></script>
-	<script src="bower_components/jquery/jquery.min.js"></script>
+	<script src="bower_components/jquery/dist/jquery.min.js"></script>
 </head>
 <body>
 	<!-- build:js scripts/vendor.js -->
 	<!-- bower:js -->
 	<!-- endbower -->
 	<!-- endbuild -->
-	<div ng-controller="MainCtrl" data-ng-init="getStatus()">
+	<div class="container" ng-controller="MainCtrl" data-ng-init="getStatus()">
 		<div class="row">
-				<div class="col-xs-6" ng-repeat="member in memberStatus">
-					<img ng-src="./images/{{$index+1}}.jpg" width="70px" height="70px" align="middle">
+				<div class="col-xs-6 text-center" ng-repeat="member in memberStatus">
+					<img ng-src="./images/{{$index+1}}.jpg" width="70px" height="70px">
 					<h4>{{member.username}}</h4>
-					<p>{{userStatus[member.status]}}</p>
 				</div><!-- /.col-lg-4 -->
 		</div><!-- row -->
-	<button ng-click="getStatus()">get status</button>
 	</div>
 <!-- build:js scripts/popup.js -->
 <script src="scripts/popup.js"></script>
