@@ -1,5 +1,5 @@
 var myStatus = {
-  "username": "tossy",
+  "username": "kiosk",
   "status": "0"
 };
 
@@ -74,12 +74,12 @@ document.addEventListener("clmtrackrConverged", function(event) {
 	var diff = Math.abs(right_side - left_side);
 	console.log('R: ' + right_side + ' / ' + 'L: ' + left_side);
 
-	if (diff < 30) {
+	if (diff < 40) {
     myStatus.status = "1";
-    console.log('集中', myStatus.status);
+    console.log('集中: ', diff, myStatus.status);
 	} else {
     myStatus.status = "0";
-		console.log('散漫', myStatus.status);
+		console.log('散漫:', diff, myStatus.status);
 	}
 
 	// stop drawloop

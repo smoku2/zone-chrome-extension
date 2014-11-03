@@ -20,9 +20,14 @@
 	<!-- endbower -->
 	<!-- endbuild -->
 	<div class="container" ng-controller="MainCtrl" data-ng-init="getStatus()">
+    <div class="row">
+      <div class="col-xs-12">
+        <input type="text" class="form-control" placeholder="Search" ng-model="query">
+      </div>
+    </div>
 		<div class="row">
-				<div class="col-xs-6 text-center" ng-repeat="member in memberStatus">
-					<img ng-src="./images/{{$index+1}}.jpg" width="70px" height="70px">
+				<div class="col-xs-6 text-center user" ng-repeat="member in memberStatus|filter:query">
+					<img ng-src="images/{{member.id}}.jpg">
 					<h4>{{member.username}}</h4>
 				</div><!-- /.col-lg-4 -->
 		</div><!-- row -->
