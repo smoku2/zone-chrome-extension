@@ -8,20 +8,17 @@ input {
   margin-bottom: 20px;
 }
 
-.user {
+.user-box {
   margin-bottom: 20px;
 }
 
 img {
+  margin: -5px;
   width: 70px;
   height: 70px;
   border-radius: 50%;
 }
 
-.status0 {
-
-}
-
 .status1 {
-
+  border: 5px solid rgba(255, 0, 0, 0.9);
 }
