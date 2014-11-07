@@ -1,8 +1,8 @@
 {
-    "name": "__MSG_appName__",
-    "version": "0.0.15",
+    "name": "ZONE",
+    "version": "0.0.17",
     "manifest_version": 2,
-    "description": "__MSG_appDescription__",
+    "description": "エンジニアの集中ステータスをチームで共有",
     "icons": {
         "16": "images/icon-16.png",
         "128": "images/icon-128.png"
@@ -15,7 +15,7 @@
             "19": "images/icon-19.png",
             "38": "images/icon-38.png"
         },
-        "default_title": "BAIO",
+        "default_title": "ZONE",
         "default_popup": "popup.html"
     },
     "permissions": [

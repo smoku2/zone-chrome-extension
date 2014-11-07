@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <style>
-   #overlay {
+  #overlay {
     position: absolute;
     top: 0px;
     left: 0px;
@@ -13,10 +13,9 @@
     width : 700px;
     height : 500px;
   }
-</style>
+  </style>
 </head>
-<body ng-controller="MainCtrl">
-  <script src="scripts/background.js"></script>
+<body>
   <script src="scripts/vendor/utils.js"></script>
   <script src="scripts/vendor/jsfeat-min.js"></script>
   <script src="scripts/vendor/frontalface.js"></script>
@@ -34,9 +33,8 @@
     <canvas id="image" width="625" height="500"></canvas>
     <canvas id="overlay" width="625" height="500"></canvas>
   </div>
-  <br/>
-  <input type="button" id="animateClean" value="Recognize">
-  <input type="button" id="takeSnapshot" value="Take Snapshot">
+  <input type="button" id="animate" value="Animate">
+  <input type="button" id="capture" value="Capture">
   <p id="messageBox"></p>
   <script src="scripts/capturing.js"></script>
 </body>
