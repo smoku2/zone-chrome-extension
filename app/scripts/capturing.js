@@ -131,6 +131,7 @@ var updateUserStatus = function() {
   xhr.open('POST', 'http://dmtc-baio.herokuapp.com/status/update');
   xhr.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
 
+  user.status = currentStatus;
   var data = JSON.stringify(user);
   console.log(data);
 
